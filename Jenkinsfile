@@ -4,7 +4,7 @@ pipeline {
   stages {
       stage('Build') {
           steps {
-            sh 'files=$(git diff-tree --no-commit-id --name-only -r $CI_COMMIT_SHA)'
+            sh 'files=$(git diff --name-only $(git merge-base master release))'
          }  
       }
       stage('Deploy') {
