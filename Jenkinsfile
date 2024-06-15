@@ -5,7 +5,7 @@ pipeline {
       stage('Build') {
           steps {
             sh 'echo `pwd`'
-            sh 'files=$(git diff --name-only $(git merge-base master release))'
+            sh 'cd jenkinsdemo; files=$(git diff --name-only $(git merge-base master release))'
          }  
       }
       stage('Deploy') {
