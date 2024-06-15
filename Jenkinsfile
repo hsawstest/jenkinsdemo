@@ -6,8 +6,8 @@ pipeline {
           steps {
             git branch: 'release',
                 url: 'https://github.com/hsawstest/jenkinsdemo.git'
-            sh "ls -lat"
-            sh 'ls -lrt; files=$(git diff --name-only $(git merge-base master release))'
+            def files = sh '$(git diff --name-only $(git merge-base master release))'
+            env.files = files
          }  
       }
       stage('Deploy') {
