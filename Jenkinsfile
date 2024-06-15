@@ -4,6 +4,7 @@ pipeline {
   stages {
       stage('Build') {
           steps {
+            sh 'echo `pwd`'
             sh 'files=$(git diff --name-only $(git merge-base master release))'
          }  
       }
