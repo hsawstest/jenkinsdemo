@@ -4,7 +4,9 @@ pipeline {
   stages {
       stage('Build') {
           steps {
-            sh 'echo `pwd`'
+            git branch: 'release',
+                url: 'https://github.com/hsawstest/jenkinsdemo.git'
+            sh "ls -lat"
             sh 'ls -lrt; files=$(git diff --name-only $(git merge-base master release))'
          }  
       }
