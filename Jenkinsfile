@@ -4,8 +4,10 @@ pipeline {
   stages {
       stage('Build') {
           steps {
-             sh "files=$(git diff-tree --no-commit-id --name-only -r $CI_COMMIT_SHA)"
-         }
+             script{
+               sh "files=$(git diff-tree --no-commit-id --name-only -r $CI_COMMIT_SHA)"
+             }
+         }  
       }
       stage('Deploy') {
           steps {
