@@ -8,7 +8,8 @@ pipeline {
             git branch: 'release',
                url: 'https://github.com/hsawstest/jenkinsdemo.git'
             script{
-               files = sh '$(git diff --name-only $(git merge-base master release))'
+               // files = sh '$(git diff --name-only $(git merge-base master release))'
+               echo "Hi"
             }
          }  
       }
