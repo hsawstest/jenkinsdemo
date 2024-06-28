@@ -1,4 +1,3 @@
-def files = ""
 pipeline {
   agent any
 
